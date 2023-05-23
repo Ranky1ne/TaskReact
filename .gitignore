@@ -1,7 +1,12 @@
 /node_modules
+/package-lock.json
 /.pnp
 .pnp.js
-
+/server/node_modules
+/server/sqlite.db
+/server/sqlite.db-shm
+/server/sqlite.db-wal
+/server/package-lock.json
 # testing
 /coverage
 

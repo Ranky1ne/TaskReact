@@ -4,6 +4,9 @@ import './index.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Register from './components/Register';
 import App from './App';
+import axios from "axios"
+
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'no-cors';
 
 const router = createBrowserRouter([
   {

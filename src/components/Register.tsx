@@ -1,20 +1,25 @@
 import React from 'react'
 import Button from "./Button";
 import Input from "./Input";
+import axios from 'axios';
 
 export default function Register() {
-  const user =async () => {
-    let login = (document.getElementById("reg-login") as HTMLInputElement).value;;
-    console.log(login);
-    let password = (document.getElementById("reg-password") as HTMLInputElement).value;;
-    const res = await fetch("/newUrl", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify({ login, password }),
-    });
+  
+  const user = async () => {
+    let email = (document.getElementById("reg-login") as HTMLInputElement).value;
+    let password = (document.getElementById("reg-password") as HTMLInputElement).value;
+    const res = await axios.post("http://localhost:3001/register",{ email, password })
+    .then((res) =>{
+    console.log(res)
+    if (res.status === 400){
+      alert("That email already exist")
+    }}).catch((error) => {
+      console.log(error);
+      alert('Something go wrong, try later')
+    })
+ 
   };
+
   return (
     <div className="bg-white">
     <div className="relative isolate px-6 pt-14 lg:px-8">
